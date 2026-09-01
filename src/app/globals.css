@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #faf7f0;
+  --paper-line: rgba(63, 49, 132, 0.07);
+  --ink: #211c3d;
+  --muted: #6b6580;
+  --indigo: #3f3184;
+  --indigo-deep: #241c4d;
+  --indigo-soft: #6a5acd;
+  --marigold: #e8952c;
+  --marigold-light: #f6b95a;
+  --teal: #0f9c8e;
+  --coral: #e1583f;
+  --white: #ffffff;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 2px 10px rgba(33, 28, 61, 0.06);
+  --shadow-md: 0 10px 30px rgba(33, 28, 61, 0.09);
+  --shadow-lg: 0 24px 60px rgba(33, 28, 61, 0.16);
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-indigo: var(--indigo);
+  --color-indigo-deep: var(--indigo-deep);
+  --color-indigo-soft: var(--indigo-soft);
+  --color-marigold: var(--marigold);
+  --color-marigold-light: var(--marigold-light);
+  --color-teal: var(--teal);
+  --color-coral: var(--coral);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Fraunces", Georgia, serif;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--marigold-light);
+  color: var(--ink);
+}
+
+/* Ruled-notebook backdrop, used only behind hero/page headers */
+.ruled-bg {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 37px,
+    var(--paper-line) 38px
+  );
+}
+
+/* Hand-drawn marker underline — the page's one recurring signature mark */
+.mark-underline {
+  position: relative;
+  white-space: nowrap;
+}
+.mark-underline svg {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -0.14em;
+  width: 104%;
+  height: 0.32em;
+  color: var(--marigold);
+}
+
+/* Red-pen style circle, used once per page as an annotation accent */
+.pen-circle {
+  position: relative;
+  display: inline-block;
+}
+.pen-circle svg {
+  position: absolute;
+  inset: -22% -14%;
+  width: 128%;
+  height: 144%;
+  color: var(--coral);
+  pointer-events: none;
+}
+
+.container-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
