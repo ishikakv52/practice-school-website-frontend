@@ -9,7 +9,9 @@ import {
   listAdmissions,
   updateAdmissionStatus,
 } from "@/services/adminService";
+import { sendAnnouncement } from "@/services/announcementService";
 import { ApiClientError } from "@/services/api";
+import { subscribeToPush } from "@/services/pushNotifications";
 
 type Enquiry = {
   id: number;
@@ -40,15 +42,23 @@ export default function AdminDashboardPage() {
   const [checkingAuth, setCheckingAuth] = useState(true);
   const [adminName, setAdminName] = useState<string | null>(null);
 
-  const [tab, setTab] = useState<"enquiries" | "admissions">("enquiries");
+  const [tab, setTab] = useState<"enquiries" | "admissions" | "announcements">("enquiries");
   const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
   const [admissions, setAdmissions] = useState<Admission[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const [annTitle, setAnnTitle] = useState("");
+  const [annMessage, setAnnMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sentMessage, setSentMessage] = useState<string | null>(null);
+
   useEffect(() => {
     me()
-      .then((res) => setAdminName(res?.data?.user?.name ?? "Admin"))
+      .then((res) => {
+        setAdminName(res?.data?.user?.name ?? "Admin");
+        subscribeToPush("admin");
+      })
       .catch(() => router.replace("/admin/login"))
       .finally(() => setCheckingAuth(false));
   }, [router]);
@@ -65,7 +75,7 @@ export default function AdminDashboardPage() {
         if (tab === "enquiries") {
           const res = await listEnquiries();
           if (!cancelled) setEnquiries(res?.data ?? []);
-        } else {
+        } else if (tab === "admissions") {
           const res = await listAdmissions();
           if (!cancelled) setAdmissions(res?.data ?? []);
         }
@@ -103,6 +113,23 @@ export default function AdminDashboardPage() {
       );
     } catch (err) {
       setError(err instanceof ApiClientError ? err.message : "Failed to update status.");
+    }
+  }
+
+  async function handleSendAnnouncement(e: React.FormEvent) {
+    e.preventDefault();
+    setSending(true);
+    setError(null);
+    setSentMessage(null);
+    try {
+      await sendAnnouncement(annTitle, annMessage);
+      setAnnTitle("");
+      setAnnMessage("");
+      setSentMessage("Announcement sent successfully.");
+    } catch (err) {
+      setError(err instanceof ApiClientError ? err.message : "Failed to send announcement.");
+    } finally {
+      setSending(false);
     }
   }
 
@@ -147,11 +174,25 @@ export default function AdminDashboardPage() {
         >
           Admissions
         </button>
+        <button
+          onClick={() => setTab("announcements")}
+          className={`rounded-full px-5 py-2.5 font-semibold transition-colors ${
+            tab === "announcements" ? "bg-indigo text-white" : "bg-white border border-ink/15"
+          }`}
+        >
+          Announcements
+        </button>
       </div>
 
       {error && (
         <div className="mb-5 rounded-[10px] bg-coral/10 border border-coral/30 text-coral font-semibold px-4 py-3.5 text-sm">
           {error}
+        </div>
+      )}
+
+      {sentMessage && (
+        <div className="mb-5 rounded-[10px] bg-green-50 border border-green-200 text-green-700 font-semibold px-4 py-3.5 text-sm">
+          {sentMessage}
         </div>
       )}
 
@@ -188,7 +229,7 @@ export default function AdminDashboardPage() {
             </div>
           ))}
         </div>
-      ) : (
+      ) : tab === "admissions" ? (
         <div className="space-y-4">
           {admissions.length === 0 && <p className="text-muted">No applications yet.</p>}
           {admissions.map((adm) => (
@@ -221,6 +262,38 @@ export default function AdminDashboardPage() {
             </div>
           ))}
         </div>
+      ) : (
+        <form
+          onSubmit={handleSendAnnouncement}
+          className="bg-white rounded-2xl shadow-[var(--shadow-sm)] border border-ink/[0.05] p-6 space-y-4 max-w-lg"
+        >
+          <div>
+            <label className="block font-semibold text-sm mb-1.5">Title</label>
+            <input
+              value={annTitle}
+              onChange={(e) => setAnnTitle(e.target.value)}
+              required
+              className="w-full px-4 py-3 rounded-[10px] border border-ink/15 bg-paper focus:bg-white focus:outline-none focus:border-indigo-soft focus:ring-4 focus:ring-indigo-soft/15 transition"
+            />
+          </div>
+          <div>
+            <label className="block font-semibold text-sm mb-1.5">Message</label>
+            <textarea
+              value={annMessage}
+              onChange={(e) => setAnnMessage(e.target.value)}
+              required
+              rows={4}
+              className="w-full px-4 py-3 rounded-[10px] border border-ink/15 bg-paper focus:bg-white focus:outline-none focus:border-indigo-soft focus:ring-4 focus:ring-indigo-soft/15 transition"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={sending}
+            className="rounded-full bg-indigo hover:bg-indigo-deep transition-colors text-white font-semibold px-6 py-3.5 disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {sending ? "Sending..." : "Send Announcement"}
+          </button>
+        </form>
       )}
     </div>
   );

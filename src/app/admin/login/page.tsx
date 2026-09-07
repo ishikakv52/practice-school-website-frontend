@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { login } from "@/services/authService";
 import { ApiClientError } from "@/services/api";
+import { subscribeToPush } from "@/services/pushNotifications";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -18,6 +19,7 @@ export default function AdminLoginPage() {
     const data = new FormData(e.currentTarget);
     try {
       await login(String(data.get("email") || ""), String(data.get("password") || ""));
+      subscribeToPush("admin"); // fire-and-forget, login flow ko block nahi karega
       router.push("/admin");
     } catch (err) {
       setError(
