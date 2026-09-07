@@ -1,4 +1,4 @@
-# Sunrise Public School — Next.js Website
+# Nexa Hub School — Next.js Website
 
 Static HTML se convert kiya gaya Next.js 16 (App Router + TypeScript + Tailwind v4) project. UI redesign kiya gaya hai: Fraunces (headings) + Inter (body) typography, indigo/marigold/teal palette, hand-drawn marker underline, scroll-reveal animations, aur fully responsive mobile menu.
 

@@ -3,7 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Gallery — Sunrise Public School",
+  title: "Gallery — Nexa Hub School",
 };
 
 const ITEMS = [

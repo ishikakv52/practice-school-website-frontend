@@ -5,7 +5,7 @@ import SectionTag from "@/components/SectionTag";
 import AdmissionForm from "@/components/AdmissionForm";
 
 export const metadata: Metadata = {
-  title: "Admissions — Sunrise Public School",
+  title: "Admissions — Nexa Hub School",
 };
 
 const STEPS = [

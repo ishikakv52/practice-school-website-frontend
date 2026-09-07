@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Sunrise Public School",
+  title: "Nexa Hub School",
   description:
-    "Sunrise Public School — CBSE-aligned education in New Delhi. Admissions open for 2026-27.",
+    "Nexa Hub School — CBSE-aligned education in New Delhi. Admissions open for 2026-27.",
 };
 
 export default function RootLayout({

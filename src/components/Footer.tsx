@@ -9,7 +9,7 @@ export default function Footer() {
             <span className="w-10 h-10 rounded-xl bg-marigold text-ink flex items-center justify-center text-base font-display font-bold">
               SP
             </span>
-            Sunrise Public School
+            Nexa Hub School
           </div>
           <p className="text-sm max-w-xs">
             Nurturing excellence, building character, and inspiring lifelong
@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-5 text-center text-xs text-white/50">
-        © 2026 Sunrise Public School. All rights reserved.
+        © 2026 Nexa Hub School. All rights reserved.
       </div>
     </footer>
   );

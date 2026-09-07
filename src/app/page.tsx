@@ -94,7 +94,7 @@ export default function Home() {
               </span>
             </h1>
             <p className="text-white/80 text-lg max-w-md mb-9">
-              Sunrise Public School offers a nurturing environment where
+              Nexa Hub School offers a nurturing environment where
               every child discovers their potential — academically,
               creatively, and personally.
             </p>
@@ -178,7 +178,7 @@ export default function Home() {
               A legacy of excellence since 2000
             </h2>
             <p className="text-muted mb-6">
-              Sunrise Public School has been shaping young minds for over two
+              Nexa Hub School has been shaping young minds for over two
               decades. Our mission is to provide a holistic education that
               balances academics, life-skills, and values.
             </p>

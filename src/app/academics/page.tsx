@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import SectionTag from "@/components/SectionTag";
 
 export const metadata: Metadata = {
-  title: "Academics — Sunrise Public School",
+  title: "Academics — Nexa Hub School",
 };
 
 const PROGRAMS = [

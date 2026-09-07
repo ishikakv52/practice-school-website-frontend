@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact — Sunrise Public School",
+  title: "Contact — Nexa Hub School",
 };
 
 const DETAILS = [

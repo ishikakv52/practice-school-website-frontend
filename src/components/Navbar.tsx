@@ -28,7 +28,7 @@ export default function Navbar() {
           <span className="w-10 h-10 rounded-xl bg-indigo text-white flex items-center justify-center text-base font-display font-bold shrink-0">
             SP
           </span>
-          Sunrise Public School
+          Nexa Hub School
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">

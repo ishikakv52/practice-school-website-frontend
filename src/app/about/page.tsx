@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import SectionTag from "@/components/SectionTag";
 
 export const metadata: Metadata = {
-  title: "About Us — Sunrise Public School",
+  title: "About Us — Nexa Hub School",
 };
 
 const LEADERSHIP = [
@@ -42,7 +42,7 @@ export default function AboutPage() {
               Our story
             </h2>
             <p className="text-muted mb-4">
-              Founded in 2000, Sunrise Public School began with a simple
+              Founded in 2000, Nexa Hub School began with a simple
               vision: to create a learning environment where every child
               feels valued and inspired to reach their full potential. Over
               25 years, we have grown into a community of 1500+ students,
