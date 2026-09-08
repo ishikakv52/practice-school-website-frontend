@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { useAuth } from "@/lib/auth-context";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -16,6 +17,15 @@ const LINKS = [
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const { user } = useAuth();
+  const dashboardHref =
+    user?.role === "admin"
+      ? "/admin/dashboard"
+      : user?.role === "parent"
+        ? "/parent/dashboard"
+        : user?.role === "student"
+          ? "/student/dashboard"
+          : "/login";
 
   return (
     <header className="sticky top-0 z-50 bg-paper/85 backdrop-blur-md border-b border-ink/[0.06]">
@@ -55,6 +65,13 @@ export default function Navbar() {
         </nav>
 
         <Link
+          href={dashboardHref}
+          className="hidden md:inline-flex items-center gap-2 rounded-full border border-indigo text-indigo hover:bg-indigo hover:text-white transition-colors font-semibold text-sm px-5 py-2.5"
+        >
+          {user ? "Dashboard" : "Parent/Student Login"}
+        </Link>
+
+        <Link
           href="/admissions"
           className="hidden md:inline-flex items-center gap-2 rounded-full bg-marigold hover:bg-marigold-light transition-colors text-ink font-semibold text-sm px-5 py-2.5"
         >
@@ -90,6 +107,13 @@ export default function Navbar() {
               </Link>
             );
           })}
+          <Link
+            href={dashboardHref}
+            onClick={() => setOpen(false)}
+            className="mt-3 inline-flex justify-center rounded-full border border-indigo text-indigo font-semibold text-sm px-5 py-2.5"
+          >
+            {user ? "Dashboard" : "Parent/Student Login"}
+          </Link>
           <Link
             href="/admissions"
             onClick={() => setOpen(false)}
