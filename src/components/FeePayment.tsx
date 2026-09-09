@@ -13,11 +13,10 @@ export default function FeePayment({ studentId, amount, studentName }: {
     setLoading(true);
     setStatus("idle");
     try {
-      const result = await apiRequest("/api/fees/create-order", {
+      const data = await apiRequest("/api/fees/create-order", {
         method: "POST",
         body: JSON.stringify({ studentId, amount, description: "School Fee" }),
       });
-      const data = result.data;
 
       const rzp = new (window as any).Razorpay({
         key: data.keyId,
@@ -31,7 +30,7 @@ export default function FeePayment({ studentId, amount, studentName }: {
             method: "POST",
             body: JSON.stringify(response),
           });
-          setStatus(verifyResult.data.success ? "success" : "error");
+          setStatus(verifyResult.success ? "success" : "error");
         },
         theme: { color: "#2563eb" },
       });
