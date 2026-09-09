@@ -9,11 +9,13 @@ import { useAuth, type AuthUser } from "@/lib/auth-context";
 type ProtectedDashboardProps = {
   expectedRole: AuthUser["role"];
   title: string;
+  children?: React.ReactNode;
 };
 
 export default function ProtectedDashboard({
   expectedRole,
   title,
+  children,
 }: ProtectedDashboardProps) {
   const router = useRouter();
   const { user, loading: sessionLoading, setUser } = useAuth();
@@ -71,7 +73,7 @@ export default function ProtectedDashboard({
         </button>
       </div>
       <div className="bg-white rounded-2xl shadow-[var(--shadow-sm)] border border-ink/[0.05] p-8">
-        <p className="text-muted">Your dashboard is ready.</p>
+        {children ?? <p className="text-muted">Your dashboard is ready.</p>}
       </div>
     </div>
   );

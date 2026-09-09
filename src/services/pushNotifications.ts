@@ -17,13 +17,12 @@ export async function subscribeToPush(userType: 'admin' | 'parent' | 'student') 
 
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY) as BufferSource,
+      applicationServerKey: urlBase64ToArrayBuffer(VAPID_PUBLIC_KEY),
     });
 
-    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/push/subscribe`, {
+    await fetch('/api/push/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
       body: JSON.stringify({
         endpoint: subscription.endpoint,
         keys: subscription.toJSON().keys,
@@ -37,9 +36,15 @@ export async function subscribeToPush(userType: 'admin' | 'parent' | 'student') 
   }
 }
 
-function urlBase64ToUint8Array(base64String: string): Uint8Array {
+function urlBase64ToArrayBuffer(base64String: string): ArrayBuffer {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
   const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
   const rawData = atob(base64);
-  return Uint8Array.from([...rawData].map((char) => char.charCodeAt(0)));
+  const bytes = new Uint8Array(new ArrayBuffer(rawData.length));
+
+  for (let index = 0; index < rawData.length; index += 1) {
+    bytes[index] = rawData.charCodeAt(index);
+  }
+
+  return bytes.buffer;
 }
