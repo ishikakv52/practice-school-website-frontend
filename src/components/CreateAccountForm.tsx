@@ -10,7 +10,7 @@ const ROLES = [
   { value: "staff", label: "Staff / Accountant" },
 ];
 
-export default function CreateAccountForm() {
+export default function CreateAccountForm({ onCreated }: { onCreated?: () => void }) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
@@ -32,6 +32,7 @@ export default function CreateAccountForm() {
       const result = await createStaffAccount({ name, email, password, role });
       setSuccess(`Account created for ${result.data.user.name} (${result.data.user.role}).`);
       form.reset();
+      onCreated?.();
     } catch (err) {
       setError(
         err instanceof ApiClientError ? err.message : "Something went wrong. Please try again."

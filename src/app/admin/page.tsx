@@ -13,6 +13,7 @@ import { sendAnnouncement } from "@/services/announcementService";
 import { ApiClientError } from "@/services/api";
 import { subscribeToPush } from "@/services/pushNotifications";
 import CreateAccountForm from "@/components/CreateAccountForm";
+import AccountsList from "@/components/AccountsList";
 
 type Enquiry = {
   id: number;
@@ -55,6 +56,8 @@ export default function AdminDashboardPage() {
   const [annMessage, setAnnMessage] = useState("");
   const [sending, setSending] = useState(false);
   const [sentMessage, setSentMessage] = useState<string | null>(null);
+
+  const [accountsRefreshKey, setAccountsRefreshKey] = useState(0);
 
   useEffect(() => {
     me()
@@ -307,7 +310,8 @@ export default function AdminDashboardPage() {
         </form>
       ) : (
         <div className="bg-white rounded-2xl shadow-[var(--shadow-sm)] border border-ink/[0.05] p-6">
-          <CreateAccountForm />
+          <CreateAccountForm onCreated={() => setAccountsRefreshKey((k) => k + 1)} />
+          <AccountsList refreshKey={accountsRefreshKey} />
         </div>
       )}
     </div>
