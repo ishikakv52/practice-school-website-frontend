@@ -20,7 +20,7 @@ export default function ParentDashboard() {
           <div key={fee.id}>
             <p className="text-sm text-muted mb-1">{fee.description}</p>
             <FeePayment
-              studentId={(user as any)?.studentId ?? 1}
+              studentId={(user as any)?.studentId ?? 2}
               amount={fee.amount}
               studentName={user?.name ?? "Student"}
             />
