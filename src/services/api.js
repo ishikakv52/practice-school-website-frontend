@@ -2,9 +2,13 @@
 // and later eventService/noticeService/paymentService, etc.) goes through
 // this instead of calling fetch() directly from components — one place
 // to change the base URL, headers, or error shape.
+//
+// NEXT_PUBLIC_API_URL should be the bare backend URL with NO /api suffix
+// (e.g. https://school-backend-docker-z9r4.onrender.com) — this file adds
+// the /api prefix itself, same as src/lib/api.js callers do inline.
 
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+  (process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000") + "/api";
 
 export class ApiClientError extends Error {
   constructor(message, status, details) {
