@@ -12,6 +12,7 @@ import {
 import { sendAnnouncement } from "@/services/announcementService";
 import { ApiClientError } from "@/services/api";
 import { subscribeToPush } from "@/services/pushNotifications";
+import CreateAccountForm from "@/components/CreateAccountForm";
 
 type Enquiry = {
   id: number;
@@ -42,7 +43,9 @@ export default function AdminDashboardPage() {
   const [checkingAuth, setCheckingAuth] = useState(true);
   const [adminName, setAdminName] = useState<string | null>(null);
 
-  const [tab, setTab] = useState<"enquiries" | "admissions" | "announcements">("enquiries");
+  const [tab, setTab] = useState<"enquiries" | "admissions" | "announcements" | "accounts">(
+    "enquiries"
+  );
   const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
   const [admissions, setAdmissions] = useState<Admission[]>([]);
   const [loading, setLoading] = useState(false);
@@ -182,6 +185,14 @@ export default function AdminDashboardPage() {
         >
           Announcements
         </button>
+        <button
+          onClick={() => setTab("accounts")}
+          className={`rounded-full px-5 py-2.5 font-semibold transition-colors ${
+            tab === "accounts" ? "bg-indigo text-white" : "bg-white border border-ink/15"
+          }`}
+        >
+          Accounts
+        </button>
       </div>
 
       {error && (
@@ -262,7 +273,7 @@ export default function AdminDashboardPage() {
             </div>
           ))}
         </div>
-      ) : (
+      ) : tab === "announcements" ? (
         <form
           onSubmit={handleSendAnnouncement}
           className="bg-white rounded-2xl shadow-[var(--shadow-sm)] border border-ink/[0.05] p-6 space-y-4 max-w-lg"
@@ -294,6 +305,10 @@ export default function AdminDashboardPage() {
             {sending ? "Sending..." : "Send Announcement"}
           </button>
         </form>
+      ) : (
+        <div className="bg-white rounded-2xl shadow-[var(--shadow-sm)] border border-ink/[0.05] p-6">
+          <CreateAccountForm />
+        </div>
       )}
     </div>
   );
