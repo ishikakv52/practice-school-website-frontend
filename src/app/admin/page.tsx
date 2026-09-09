@@ -45,7 +45,7 @@ export default function AdminDashboardPage() {
   const [checkingAuth, setCheckingAuth] = useState(true);
   const [adminName, setAdminName] = useState<string | null>(null);
 
-  const [tab, setTab] = useState
+  const [tab, setTab] = useState<
     "enquiries" | "admissions" | "announcements" | "accounts" | "classes"
   >("enquiries");
   const [enquiries, setEnquiries] = useState<Enquiry[]>([]);

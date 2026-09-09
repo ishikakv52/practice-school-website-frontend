@@ -1,8 +1,7 @@
 "use client";
 import { useState } from "react";
 import Script from "next/script";
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL + "/api";
+import { apiRequest } from "@/lib/api";
 
 export default function FeePayment({ studentId, amount, studentName }: {
   studentId: number; amount: number; studentName: string;
@@ -14,13 +13,11 @@ export default function FeePayment({ studentId, amount, studentName }: {
     setLoading(true);
     setStatus("idle");
     try {
-      const token = localStorage.getItem("token");
-      const res = await fetch(`${API_BASE}/fees/create-order`, {
+      const result = await apiRequest("/api/fees/create-order", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
         body: JSON.stringify({ studentId, amount, description: "School Fee" }),
       });
-      const data = await res.json();
+      const data = result.data;
 
       const rzp = new (window as any).Razorpay({
         key: data.keyId,
@@ -30,13 +27,11 @@ export default function FeePayment({ studentId, amount, studentName }: {
         description: `Fee payment for ${studentName}`,
         order_id: data.orderId,
         handler: async function (response: any) {
-          const verifyRes = await fetch(`${API_BASE}/fees/verify`, {
+          const verifyResult = await apiRequest("/api/fees/verify", {
             method: "POST",
-            headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
             body: JSON.stringify(response),
           });
-          const verifyData = await verifyRes.json();
-          setStatus(verifyData.success ? "success" : "error");
+          setStatus(verifyResult.data.success ? "success" : "error");
         },
         theme: { color: "#2563eb" },
       });
@@ -54,12 +49,13 @@ export default function FeePayment({ studentId, amount, studentName }: {
   return (
     <>
       <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
-      <div className="p-4 border rounded-lg">
+      <div className="p-4 border border-ink/[0.05] rounded-2xl">
         <p className="mb-2">Fee due: ₹{amount}</p>
         <button
+          type="button"
           onClick={handlePay}
           disabled={loading}
-          className="bg-blue-600 text-white px-4 py-2 rounded disabled:opacity-50"
+          className="rounded-full bg-ink text-white px-5 py-2.5 font-semibold disabled:opacity-50"
         >
           {loading ? "Processing..." : "Pay Now"}
         </button>
