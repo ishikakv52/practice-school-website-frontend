@@ -12,7 +12,7 @@ export default function PendingAdmissions() {
     setLoading(true);
     const [admRes, classRes] = await Promise.all([getPendingAdmissions(), getClasses()]);
     setAdmissions(admRes.admissions || []);
-    setClasses(classRes.classes || classRes || []);
+    setClasses(classRes.data || []);
     setLoading(false);
   };
 
