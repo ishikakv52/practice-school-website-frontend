@@ -199,8 +199,12 @@ export default function Home() {
             </ul>
           </Reveal>
           <Reveal delay={100}>
-            <div className="aspect-4/3 rounded-2xl bg-gradient-to-br from-indigo/10 to-teal/10 flex items-center justify-center text-7xl shadow-[var(--shadow-sm)]">
-              🏫
+            <div className="aspect-4/3 rounded-2xl overflow-hidden shadow-[var(--shadow-sm)]">
+              <img
+                src="https://res.cloudinary.com/dpib3tes3/image/upload/v1789041549/ChatGPT_Image_Sep_10_2026_05_28_04_PM_qw9fxq.png"
+                alt="Nexa Hub School campus"
+                className="w-full h-full object-cover"
+              />
             </div>
           </Reveal>
         </div>
