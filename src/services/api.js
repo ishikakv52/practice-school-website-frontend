@@ -89,9 +89,7 @@ async function parseResponse(res) {
   return payload;
 }
 
-export const getPendingAdmissions = () => apiRequest("/api/admissions/pending");
-export const approveAdmission = (id, classId) =>
-  apiRequest(`/api/admissions/${id}/approve`, { method: "POST", body: { classId } });
-export const rejectAdmission = (id, reason) =>
-  apiRequest(`/api/admissions/${id}/reject`, { method: "POST", body: { reason } });
-export const getClasses = () => apiRequest("/api/classes");
+export const getPendingAdmissions = () => apiGet("/api/admissions/pending");
+export const approveAdmission = (id, classId) => apiPost(`/api/admissions/${id}/approve`, { classId });
+export const rejectAdmission = (id, reason) => apiPost(`/api/admissions/${id}/reject`, { reason });
+export const getClasses = () => apiGet("/api/classes");
