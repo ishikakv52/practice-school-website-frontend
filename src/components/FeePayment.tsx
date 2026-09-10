@@ -32,7 +32,7 @@ export default function FeePayment({ studentId, feeId, amount, feeMonth, student
           });
           setStatus(verifyResult.success ? "success" : "error");
         },
-        theme: { color: "#2563eb" },
+        theme: { color: "#3f3184" },
       });
 
       rzp.on("payment.failed", () => setStatus("error"));
@@ -48,19 +48,16 @@ export default function FeePayment({ studentId, feeId, amount, feeMonth, student
   return (
     <>
       <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
-      <div className="p-4 border border-ink/[0.05] rounded-2xl">
-        <p className="mb-2">{feeMonth} — Fee due: ₹{amount}</p>
-        <button
-          type="button"
-          onClick={handlePay}
-          disabled={loading}
-          className="rounded-full bg-ink text-white px-5 py-2.5 font-semibold disabled:opacity-50"
-        >
-          {loading ? "Processing..." : "Pay Now"}
-        </button>
-        {status === "success" && <p className="text-green-600 mt-2">Payment successful ✅</p>}
-        {status === "error" && <p className="text-red-600 mt-2">Payment failed, try again</p>}
-      </div>
+      <button
+        type="button"
+        onClick={handlePay}
+        disabled={loading}
+        className="rounded-full bg-ink text-white px-5 py-2 text-sm font-semibold hover:bg-indigo-deep transition-colors disabled:opacity-50"
+      >
+        {loading ? "Processing..." : "Pay Now"}
+      </button>
+      {status === "success" && <p className="text-teal text-sm mt-2">Payment successful ✅</p>}
+      {status === "error" && <p className="text-coral text-sm mt-2">Payment failed, try again</p>}
     </>
   );
 }

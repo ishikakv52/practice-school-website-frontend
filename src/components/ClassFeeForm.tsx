@@ -54,57 +54,68 @@ export default function ClassFeeForm() {
     }
   }
 
-  if (loading) return <p className="text-muted">Loading...</p>;
-
   return (
-    <div className="mb-8">
-      <h2 className="text-lg font-medium mb-3">Set Monthly Class Fee ({CURRENT_YEAR})</h2>
-      <div className="flex items-center gap-2 mb-4">
-        <select
-          value={selectedClass}
-          onChange={(e) => setSelectedClass(e.target.value)}
-          className="border rounded px-2 py-1.5"
-        >
-          <option value="">Select class</option>
-          {classes.map((c) => (
-            <option key={c.id} value={c.id}>{c.name}</option>
-          ))}
-        </select>
-        <input
-          type="number"
-          placeholder="Monthly amount"
-          value={amount}
-          onChange={(e) => setAmount(e.target.value)}
-          className="border rounded px-2 py-1.5 w-40"
-        />
+    <div className="mb-10 pb-10 border-b border-ink/[0.07]">
+      <h2 className="font-display text-2xl font-semibold mb-1">Set Monthly Class Fee</h2>
+      <p className="text-muted text-sm mb-6">{CURRENT_YEAR} academic year</p>
+
+      <div className="flex flex-wrap items-end gap-3 mb-7">
+        <div>
+          <label className="block text-sm font-semibold mb-1.5">Class</label>
+          <select
+            value={selectedClass}
+            onChange={(e) => setSelectedClass(e.target.value)}
+            className="rounded-[10px] border border-ink/15 bg-paper px-4 py-2.5 focus:outline-none focus:border-indigo-soft focus:ring-4 focus:ring-indigo-soft/15 transition"
+          >
+            <option value="">Select class</option>
+            {classes.map((c) => (
+              <option key={c.id} value={c.id}>{c.name}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className="block text-sm font-semibold mb-1.5">Monthly amount (₹)</label>
+          <input
+            type="number"
+            placeholder="e.g. 2000"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            className="w-40 rounded-[10px] border border-ink/15 bg-paper px-4 py-2.5 focus:outline-none focus:border-indigo-soft focus:ring-4 focus:ring-indigo-soft/15 transition"
+          />
+        </div>
         <button
           onClick={handleSave}
           disabled={saving || !selectedClass || !amount}
-          className="rounded bg-ink text-white px-4 py-1.5 disabled:opacity-50"
+          className="rounded-full bg-ink text-white px-6 py-2.5 font-semibold hover:bg-indigo-deep transition-colors disabled:opacity-50"
         >
           {saving ? "Saving..." : "Save"}
         </button>
       </div>
 
-      <table className="w-full text-sm border-collapse">
-        <thead>
-          <tr className="text-left border-b border-ink/10">
-            <th className="py-2">Class</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          {classFees.map((cf) => (
-            <tr key={cf.id} className="border-b border-ink/5">
-              <td className="py-2">{cf.class_name}</td>
-              <td>{cf.amount}</td>
-            </tr>
-          ))}
-          {classFees.length === 0 && (
-            <tr><td colSpan={2} className="py-3 text-muted">No class fees set yet.</td></tr>
-          )}
-        </tbody>
-      </table>
+      {loading ? (
+        <p className="text-muted text-sm">Loading...</p>
+      ) : classFees.length > 0 ? (
+        <div className="overflow-hidden rounded-[16px] border border-ink/[0.07]">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-ink/[0.07] bg-paper/60">
+                <th className="text-left font-semibold py-3 px-4">Class</th>
+                <th className="text-left font-semibold py-3 px-4">Monthly Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {classFees.map((cf, i) => (
+                <tr key={cf.id} className={i !== classFees.length - 1 ? "border-b border-ink/[0.05]" : ""}>
+                  <td className="py-3 px-4 font-medium">{cf.class_name}</td>
+                  <td className="py-3 px-4 text-muted">₹{cf.amount}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <p className="text-muted text-sm">No class fees set yet.</p>
+      )}
     </div>
   );
 }
