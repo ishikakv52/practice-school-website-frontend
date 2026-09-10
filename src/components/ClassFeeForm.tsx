@@ -58,7 +58,7 @@ export default function ClassFeeForm() {
 
   return (
     <div className="mb-8">
-      <h2 className="text-lg font-medium mb-3">Set Class Fee ({CURRENT_YEAR})</h2>
+      <h2 className="text-lg font-medium mb-3">Set Monthly Class Fee ({CURRENT_YEAR})</h2>
       <div className="flex items-center gap-2 mb-4">
         <select
           value={selectedClass}
@@ -72,7 +72,7 @@ export default function ClassFeeForm() {
         </select>
         <input
           type="number"
-          placeholder="Annual amount"
+          placeholder="Monthly amount"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
           className="border rounded px-2 py-1.5 w-40"
