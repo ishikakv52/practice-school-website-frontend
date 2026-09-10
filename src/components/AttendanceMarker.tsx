@@ -9,6 +9,7 @@ type StudentRow = {
   studentId: number;
   name: string;
   rollNumber: string | null;
+  admissionNumber: string | null;
   status: "present" | "absent" | "late" | null;
 };
 
@@ -164,7 +165,13 @@ export default function AttendanceMarker() {
             >
               <div>
                 <p className="font-semibold text-sm">{r.name}</p>
-                {r.rollNumber && <p className="text-xs text-muted">Roll no. {r.rollNumber}</p>}
+                {(r.rollNumber || r.admissionNumber) && (
+                  <p className="text-xs text-muted">
+                    {r.rollNumber && <>Roll no. {r.rollNumber}</>}
+                    {r.rollNumber && r.admissionNumber && " · "}
+                    {r.admissionNumber && <>Admission no. {r.admissionNumber}</>}
+                  </p>
+                )}
               </div>
               <div className="flex gap-2">
                 {STATUSES.map((s) => (
