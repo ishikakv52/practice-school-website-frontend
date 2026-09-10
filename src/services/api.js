@@ -90,6 +90,6 @@ async function parseResponse(res) {
 }
 
 export const getPendingAdmissions = () => apiGet("/admissions/pending");
-export const approveAdmission = (id, classId) => apiPost(`/admissions//approve`, { classId });
-export const rejectAdmission = (id, reason) => apiPost(`/admissions//reject`, { reason });
+export const approveAdmission = (id, classId) => apiPost(`/admissions/${id}/approve`, { classId });
+export const rejectAdmission = (id, reason) => apiPost(`/admissions/${id}/reject`, { reason });
 export const getClasses = () => apiGet("/classes");
