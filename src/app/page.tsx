@@ -80,7 +80,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-indigo-deep text-white">
         <div className="absolute inset-0 ruled-bg opacity-[0.1]" />
-        <div className="container-page relative grid md:grid-cols-[1.05fr_0.95fr] gap-10 items-center pt-16 pb-16 md:pt-24 md:pb-20">
+        <div className="container-page relative grid md:grid-cols-[1.05fr_0.95fr] gap-10 items-center pt-16 pb-16 md:pt-24 md:pb-28">
           <div>
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm font-medium mb-6">
               ✨ Admissions open for 2026-27
@@ -98,7 +98,7 @@ export default function Home() {
               every child discovers their potential — academically,
               creatively, and personally.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mb-6 md:mb-0">
               <Link
                 href="/admissions"
                 className="inline-flex items-center gap-2 rounded-full bg-marigold hover:bg-marigold-light transition-colors text-ink font-semibold px-7 py-3.5"
