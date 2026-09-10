@@ -55,7 +55,7 @@ export default function ClassFeeForm() {
   }
 
   return (
-    <div className="mb-10 pb-10 border-b border-ink/[0.07]">
+    <div>
       <h2 className="font-display text-2xl font-semibold mb-1">Set Monthly Class Fee</h2>
       <p className="text-muted text-sm mb-6">{CURRENT_YEAR} academic year</p>
 
