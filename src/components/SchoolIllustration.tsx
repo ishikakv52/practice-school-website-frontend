@@ -50,13 +50,13 @@ export default function SchoolIllustration() {
       <rect x="330" y="302" width="18" height="18" rx="3" fill="#fff" opacity="0.85" />
       <rect x="352" y="302" width="18" height="18" rx="3" fill="#fff" opacity="0.85" />
 
-      <g transform="translate(300,90) rotate(-12)">
+      <g transform="translate(300,8) rotate(-10)">
         <polygon points="0,10 46,-6 92,10 46,26" fill="#241c4d" />
         <rect x="40" y="10" width="12" height="26" rx="3" fill="#171331" />
         <circle cx="46" cy="36" r="5" fill="#f6b95a" />
       </g>
 
-      <g transform="translate(30,80) rotate(10)">
+      <g transform="translate(15,70) rotate(10)">
         <rect x="0" y="0" width="54" height="38" rx="5" fill="#0f9c8e" />
         <rect x="4" y="5" width="46" height="28" rx="3" fill="#fff" opacity="0.9" />
         <line x1="27" y1="5" x2="27" y2="33" stroke="#0f9c8e" strokeWidth="2" />
