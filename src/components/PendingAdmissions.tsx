@@ -39,7 +39,9 @@ export default function PendingAdmissions() {
       {admissions.map((a) => (
         <div key={a.id} className="border rounded p-4">
           <p><strong>{a.student_name}</strong></p>
-          <p>Father: {a.father_name || "-"} | Admission No: {a.admission_number || "-"}</p>
+          <p>Class applied for: {a.grade_applied}</p>
+            <p>Parent: {a.parent_name} | Phone: {a.phone} | Email: {a.email}</p>
+            {a.message && <p className="text-sm text-gray-500">Note: {a.message}</p>}
           <select
             className="border p-1 mr-2"
             value={selectedClass[a.id] || ""}
