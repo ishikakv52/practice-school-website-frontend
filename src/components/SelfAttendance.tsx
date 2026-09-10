@@ -5,6 +5,7 @@ import { apiRequest } from "@/lib/api";
 type MyAttendance = {
   check_in_time: string | null;
   check_out_time: string | null;
+  status: string | null;
 } | null;
 
 function formatTime(iso: string | null) {
@@ -25,26 +26,26 @@ export default function SelfAttendance() {
     setLoading(true);
     try {
       const result = await apiRequest("/api/staff-attendance/me");
-      setStatus(result.data ?? result);
+      setStatus(result?.data ?? result ?? null);
     } finally {
       setLoading(false);
     }
   }
 
-  async function handleCheckIn() {
+  async function markMorning() {
     setActing(true);
     try {
-      await apiRequest("/api/staff-attendance/check-in", { method: "POST" });
+      await apiRequest("/api/staff-attendance/mark-morning", { method: "POST" });
       await load();
     } finally {
       setActing(false);
     }
   }
 
-  async function handleCheckOut() {
+  async function markAfternoon() {
     setActing(true);
     try {
-      await apiRequest("/api/staff-attendance/check-out", { method: "POST" });
+      await apiRequest("/api/staff-attendance/mark-afternoon", { method: "POST" });
       await load();
     } finally {
       setActing(false);
@@ -53,8 +54,8 @@ export default function SelfAttendance() {
 
   if (loading) return <p className="text-muted text-sm">Loading...</p>;
 
-  const hasCheckedIn = !!status?.check_in_time;
-  const hasCheckedOut = !!status?.check_out_time;
+  const morningDone = !!status?.check_in_time;
+  const afternoonDone = !!status?.check_out_time;
 
   return (
     <div className="mb-8 pb-8 border-b border-ink/[0.07]">
@@ -64,37 +65,45 @@ export default function SelfAttendance() {
       </p>
 
       <div className="flex flex-wrap items-center gap-4">
-        {!hasCheckedIn ? (
+        {!morningDone ? (
           <button
-            onClick={handleCheckIn}
+            onClick={markMorning}
             disabled={acting}
             className="rounded-full bg-ink text-white px-6 py-2.5 font-semibold hover:bg-indigo-deep transition-colors disabled:opacity-50"
           >
-            {acting ? "..." : "Check In"}
+            {acting ? "..." : "Mark Morning (Before Lunch)"}
           </button>
         ) : (
           <div className="flex items-center gap-2 rounded-full bg-teal/10 text-teal px-4 py-2 text-sm font-semibold">
             <span className="h-1.5 w-1.5 rounded-full bg-teal" />
-            Checked in at {formatTime(status!.check_in_time)}
+            Morning marked at {formatTime(status!.check_in_time)}
           </div>
         )}
 
-        {hasCheckedIn && !hasCheckedOut && (
+        {!afternoonDone ? (
           <button
-            onClick={handleCheckOut}
+            onClick={markAfternoon}
             disabled={acting}
             className="rounded-full border border-ink/15 px-6 py-2.5 font-semibold hover:bg-ink/[0.03] transition-colors disabled:opacity-50"
           >
-            {acting ? "..." : "Check Out"}
+            {acting ? "..." : "Mark Afternoon (After Lunch)"}
           </button>
-        )}
-
-        {hasCheckedOut && (
-          <div className="flex items-center gap-2 rounded-full bg-ink/5 text-muted px-4 py-2 text-sm font-semibold">
-            Checked out at {formatTime(status!.check_out_time)}
+        ) : (
+          <div className="flex items-center gap-2 rounded-full bg-teal/10 text-teal px-4 py-2 text-sm font-semibold">
+            <span className="h-1.5 w-1.5 rounded-full bg-teal" />
+            Afternoon marked at {formatTime(status!.check_out_time)}
           </div>
         )}
       </div>
+
+      {(morningDone || afternoonDone) && (
+        <p className="text-sm text-muted mt-4">
+          Today's status:{" "}
+          <span className="font-semibold text-ink">
+            {morningDone && afternoonDone ? "Full Day" : "Half Day"}
+          </span>
+        </p>
+      )}
     </div>
   );
 }

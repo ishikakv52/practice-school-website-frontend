@@ -68,14 +68,17 @@ function StaffAttendanceView({ role }: { role: "teacher" | "staff" }) {
                 className="flex flex-wrap items-center justify-between gap-3 border border-ink/10 rounded-[10px] px-4 py-3"
               >
                 <p className="font-semibold text-sm">{r.name}</p>
-                {checkedIn ? (
+                {checkedIn && checkedOut ? (
                   <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-teal/10 text-teal">
-                    In {formatTime(r.check_in_time)}
-                    {checkedOut && ` — Out ${formatTime(r.check_out_time)}`}
+                    Full Day
+                  </span>
+                ) : checkedIn || checkedOut ? (
+                  <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-marigold/15 text-marigold">
+                    Half Day
                   </span>
                 ) : (
-                  <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-ink/5 text-muted">
-                    Not checked in
+                  <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-coral/10 text-coral">
+                    Absent
                   </span>
                 )}
               </div>
