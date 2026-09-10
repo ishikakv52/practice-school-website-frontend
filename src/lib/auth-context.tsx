@@ -7,7 +7,7 @@ export type AuthUser = {
   id: string | number;
   name: string;
   email: string;
-  role: "admin" | "parent" | "student" | "teacher" | "principal" | "staff";
+  role: "admin" | "parent" | "student" | "teacher" | "principal" | "staff" | "accountant";
 };
 
 type AuthContextValue = {

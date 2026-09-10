@@ -11,5 +11,7 @@ export function redirectByRole(user, router) {
     router.push("/principal/dashboard");
   } else if (user.role === "staff") {
     router.push("/staff/dashboard");
+  } else if (user.role === "accountant") {
+    router.push("/accountant/dashboard");
   }
 }
