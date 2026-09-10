@@ -14,9 +14,6 @@ export function listAdmissions(status) {
   return apiGet(`/admissions${q}`);
 }
 
-export function updateAdmissionStatus(id, status) {
-  return apiPatch(`/admissions/${id}/status`, { status });
-}
 
 export function createStaffAccount({ name, email, password, role }) {
   return apiPost("/auth/admin/create-account", { name, email, password, role });

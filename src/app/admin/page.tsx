@@ -7,7 +7,6 @@ import {
   listEnquiries,
   updateEnquiryStatus,
   listAdmissions,
-  updateAdmissionStatus,
 } from "@/services/adminService";
 import { sendAnnouncement } from "@/services/announcementService";
 import { ApiClientError } from "@/services/api";
@@ -38,7 +37,6 @@ type Admission = {
 };
 
 const ENQUIRY_STATUSES = ["new", "read", "responded"] as const;
-const ADMISSION_STATUSES = ["pending", "under_review", "accepted", "rejected"] as const;
 
 export default function AdminDashboardPage() {
   const router = useRouter();
@@ -106,17 +104,6 @@ export default function AdminDashboardPage() {
       await updateEnquiryStatus(id, status);
       setEnquiries((prev) =>
         prev.map((e) => (e.id === id ? { ...e, status: status as Enquiry["status"] } : e))
-      );
-    } catch (err) {
-      setError(err instanceof ApiClientError ? err.message : "Failed to update status.");
-    }
-  }
-
-  async function handleAdmissionStatusChange(id: number, status: string) {
-    try {
-      await updateAdmissionStatus(id, status);
-      setAdmissions((prev) =>
-        prev.map((a) => (a.id === id ? { ...a, status: status as Admission["status"] } : a))
       );
     } catch (err) {
       setError(err instanceof ApiClientError ? err.message : "Failed to update status.");
@@ -270,17 +257,9 @@ export default function AdminDashboardPage() {
                   </p>
                   <p className="text-sm text-muted">Applied: {adm.created_at}</p>
                 </div>
-                <select
-                  value={adm.status}
-                  onChange={(e) => handleAdmissionStatusChange(adm.id, e.target.value)}
-                  className="rounded-[10px] border border-ink/15 px-3 py-2 text-sm font-semibold bg-paper"
-                >
-                  {ADMISSION_STATUSES.map((s) => (
-                    <option key={s} value={s}>
-                      {s}
-                    </option>
-                  ))}
-                </select>
+                <span className="rounded-[10px] border border-ink/15 px-3 py-2 text-sm font-semibold bg-paper capitalize">
+                  {adm.status.replace("_", " ")}
+                </span>
               </div>
             </div>
           ))}
