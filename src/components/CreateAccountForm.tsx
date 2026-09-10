@@ -7,7 +7,8 @@ import { ApiClientError } from "@/services/api";
 const ROLES = [
   { value: "teacher", label: "Teacher" },
   { value: "principal", label: "Principal" },
-  { value: "staff", label: "Staff / Accountant" },
+  { value: "staff", label: "Staff" },
+  { value: "accountant", label: "Accountant" },
 ];
 
 export default function CreateAccountForm({ onCreated }: { onCreated?: () => void }) {
