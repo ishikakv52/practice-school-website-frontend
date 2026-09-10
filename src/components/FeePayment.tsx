@@ -3,8 +3,8 @@ import { useState } from "react";
 import Script from "next/script";
 import { apiRequest } from "@/lib/api";
 
-export default function FeePayment({ studentId, amount, studentName }: {
-  studentId: number; amount: number; studentName: string;
+export default function FeePayment({ studentId, feeId, amount, feeMonth, studentName }: {
+  studentId: number; feeId: number; amount: number; feeMonth: string; studentName: string;
 }) {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -15,7 +15,7 @@ export default function FeePayment({ studentId, amount, studentName }: {
     try {
       const data = await apiRequest("/api/fees/create-order", {
         method: "POST",
-        body: JSON.stringify({ studentId, amount, description: "School Fee" }),
+        body: JSON.stringify({ studentId, feeId }),
       });
 
       const rzp = new (window as any).Razorpay({
@@ -23,7 +23,7 @@ export default function FeePayment({ studentId, amount, studentName }: {
         amount: data.amount,
         currency: data.currency,
         name: "NexaHub School",
-        description: `Fee payment for ${studentName}`,
+        description: `Fee payment for ${studentName} — ${feeMonth}`,
         order_id: data.orderId,
         handler: async function (response: any) {
           const verifyResult = await apiRequest("/api/fees/verify", {
@@ -49,7 +49,7 @@ export default function FeePayment({ studentId, amount, studentName }: {
     <>
       <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
       <div className="p-4 border border-ink/[0.05] rounded-2xl">
-        <p className="mb-2">Fee due: ₹{amount}</p>
+        <p className="mb-2">{feeMonth} — Fee due: ₹{amount}</p>
         <button
           type="button"
           onClick={handlePay}
