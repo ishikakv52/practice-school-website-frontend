@@ -40,6 +40,9 @@ export default function SignupPage() {
       if (result.data.token) {
         localStorage.setItem("token", result.data.token);
       }
+      if (result.data.token) {
+        localStorage.setItem("token", result.data.token);
+      }
       setUser(result.data.user);
       redirectByRole(result.data.user, router);
     } catch (submitError) {
