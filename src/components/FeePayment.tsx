@@ -35,7 +35,20 @@ export default function FeePayment({ studentId, feeId, amount, feeMonth, student
         theme: { color: "#3f3184" },
       });
 
-      rzp.on("payment.failed", () => setStatus("error"));
+      rzp.on("payment.failed", async function (response: any) {
+  setStatus("error");
+  try {
+    await apiRequest("/api/fees/payment-failed", {
+      method: "POST",
+      body: JSON.stringify({
+        feeId,
+        reason: response?.error?.description || "Payment failed",
+      }),
+    });
+  } catch (err) {
+    console.error(err);
+  }
+});
       rzp.open();
     } catch (err) {
       console.error(err);
