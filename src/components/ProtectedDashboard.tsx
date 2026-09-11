@@ -49,6 +49,7 @@ export default function ProtectedDashboard({
 
   async function handleLogout() {
     await apiRequest("/api/auth/logout", { method: "POST" }).catch(() => {});
+    localStorage.removeItem("token");
     setUser(null);
     router.replace("/login");
   }

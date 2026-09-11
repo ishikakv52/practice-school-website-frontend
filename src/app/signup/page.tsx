@@ -37,6 +37,9 @@ export default function SignupPage() {
         method: "POST",
         body: JSON.stringify({ name, email, password, role }),
       });
+      if (result.data.token) {
+        localStorage.setItem("token", result.data.token);
+      }
       setUser(result.data.user);
       redirectByRole(result.data.user, router);
     } catch (submitError) {
