@@ -11,37 +11,37 @@ export const metadata: Metadata = {
 const PROGRAMS = [
   {
     image:
-      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195619/Screenshot_2026-09-12_at_12.16.44_PM.png",
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195621/Screenshot_2026-09-12_at_12.16.20_PM.png",
     title: "Pre-Primary (Nursery – KG)",
     text: "Play-based learning focused on motor skills, language, and social development.",
   },
   {
     image:
-      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195620/Screenshot_2026-09-12_at_12.16.30_PM.png",
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195621/Screenshot_2026-09-12_at_12.16.25_PM.png",
     title: "Primary (Class I – V)",
     text: "Building strong foundations in language, math, and science through activity-based learning.",
   },
   {
     image:
-      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195620/Screenshot_2026-09-12_at_12.16.34_PM.png",
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195620/Screenshot_2026-09-12_at_12.16.30_PM.png",
     title: "Middle School (Class VI – VIII)",
     text: "Broader subject exposure with project-based and collaborative learning methods.",
   },
   {
     image:
-      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195621/Screenshot_2026-09-12_at_12.16.20_PM.png",
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195620/Screenshot_2026-09-12_at_12.16.34_PM.png",
     title: "Secondary (Class IX – X)",
     text: "CBSE curriculum with strong lab work, guided by experienced subject teachers.",
   },
   {
     image:
-      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195621/Screenshot_2026-09-12_at_12.16.25_PM.png",
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195621/Screenshot_2026-09-12_at_12.16.39_PM.png",
     title: "Senior Secondary (Class XI – XII)",
     text: "Science, Commerce, and Humanities streams with career counselling support.",
   },
   {
     image:
-      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195621/Screenshot_2026-09-12_at_12.16.39_PM.png",
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195619/Screenshot_2026-09-12_at_12.16.44_PM.png",
     title: "Digital Learning",
     text: "Smart classrooms and an online portal for assignments, grades, and resources.",
   },
