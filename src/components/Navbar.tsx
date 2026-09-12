@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "@/lib/auth-context";
 
 const LINKS = [
@@ -17,7 +17,15 @@ const LINKS = [
 export default function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { user } = useAuth();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const dashboardHref =
     user?.role === "admin"
       ? "/admin/dashboard"
@@ -28,20 +36,26 @@ export default function Navbar() {
           : "/login";
 
   return (
-    <header className="sticky top-0 z-50 bg-paper/85 backdrop-blur-md border-b border-ink/[0.06]">
-      <div className="container-page flex items-center justify-between py-3.5">
+    <header
+      className={`sticky top-0 z-50 bg-paper/90 backdrop-blur-md border-b transition-all duration-300 ${
+        scrolled ? "border-ink/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.06)] py-0" : "border-ink/[0.04] py-1"
+      }`}
+    >
+      <div className="container-page flex items-center justify-between gap-6 py-3.5 transition-all duration-300">
         <Link
           href="/"
           className="flex items-center gap-3 font-display font-semibold text-lg text-ink tracking-tight"
           onClick={() => setOpen(false)}
         >
-          <span className="w-10 h-10 rounded-xl bg-indigo text-white flex items-center justify-center text-base font-display font-bold shrink-0">
-            SP
-          </span>
+          <img
+            src="https://res.cloudinary.com/n6ej76pq/image/upload/v1789192309/Screenshot_2026-09-12_at_11.21.44_AM.png"
+            alt="Nexa Hub School logo"
+            className="w-10 h-10 rounded-xl object-contain shrink-0"
+          />
           Nexa Hub School
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-2">
           {LINKS.map((link) => {
             const active =
               link.href === "/"
