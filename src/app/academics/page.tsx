@@ -48,10 +48,26 @@ const PROGRAMS = [
 ];
 
 const ACTIVITIES = [
-  { icon: "⚽", title: "Sports" },
-  { icon: "🎭", title: "Drama Club" },
-  { icon: "🎼", title: "Music & Dance" },
-  { icon: "🤖", title: "Robotics Club" },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197090/Screenshot_2026-09-12_at_12.40.51_PM.png",
+    title: "Sports",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197089/Screenshot_2026-09-12_at_12.40.59_PM.png",
+    title: "Drama Club",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197089/Screenshot_2026-09-12_at_12.41.07_PM.png",
+    title: "Music & Dance",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197089/Screenshot_2026-09-12_at_12.41.13_PM.png",
+    title: "Robotics Club",
+  },
 ];
 
 export default function AcademicsPage() {
@@ -115,7 +131,14 @@ export default function AcademicsPage() {
             {ACTIVITIES.map((a, i) => (
               <Reveal key={a.title} delay={i * 60}>
                 <div className="bg-paper rounded-2xl border border-ink/[0.05] p-7 text-center">
-                  <div className="text-3xl mb-3">{a.icon}</div>
+                  <div className="relative w-16 h-16 mx-auto mb-3">
+                    <Image
+                      src={a.image}
+                      alt={a.title}
+                      fill
+                      className="object-contain rounded-xl"
+                    />
+                  </div>
                   <h3 className="font-display font-semibold text-sm">
                     {a.title}
                   </h3>
