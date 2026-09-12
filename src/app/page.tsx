@@ -2,7 +2,6 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import Mark from "@/components/Mark";
 import SectionTag from "@/components/SectionTag";
-import SchoolIllustration from "@/components/SchoolIllustration";
 
 const STATS = [
   { number: "1500+", label: "Students" },
@@ -78,9 +77,15 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-indigo-deep text-white">
+      <section className="relative overflow-hidden text-white">
+        <img
+          src="https://res.cloudinary.com/n6ej76pq/image/upload/v1789188658/ChatGPT_Image_Sep_10_2026_05_28_04_PM.png"
+          alt="Nexa Hub School campus"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-indigo-deep/80" />
         <div className="absolute inset-0 ruled-bg opacity-[0.1]" />
-        <div className="container-page relative grid md:grid-cols-[1.05fr_0.95fr] gap-10 items-center pt-16 pb-16 md:pt-24 md:pb-28">
+        <div className="container-page relative pt-16 pb-16 md:pt-24 md:pb-28 max-w-2xl">
           <div>
             <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm font-medium mb-6">
               ✨ Admissions open for 2026-27
@@ -112,9 +117,6 @@ export default function Home() {
                 Learn More
               </Link>
             </div>
-          </div>
-          <div>
-            <SchoolIllustration />
           </div>
         </div>
       </section>
@@ -199,11 +201,11 @@ export default function Home() {
             </ul>
           </Reveal>
           <Reveal delay={100}>
-            <div className="aspect-4/3 rounded-2xl overflow-hidden shadow-[var(--shadow-sm)]">
+            <div className="aspect-4/3 rounded-2xl overflow-hidden shadow-[var(--shadow-sm)] bg-indigo-deep/5">
               <img
-                src="https://res.cloudinary.com/dpib3tes3/image/upload/v1789041549/ChatGPT_Image_Sep_10_2026_05_28_04_PM_qw9fxq.png"
+                src="https://res.cloudinary.com/n6ej76pq/image/upload/v1789188658/ChatGPT_Image_Sep_10_2026_05_28_04_PM.png"
                 alt="Nexa Hub School campus"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             </div>
           </Reveal>
