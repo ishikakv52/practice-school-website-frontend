@@ -25,7 +25,7 @@ const DETAILS = [
     image:
       "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202856/Screenshot_2026-09-12_at_2.17.18_PM.png",
     title: "Email",
-    text: "info@sunrisepublicschool.edu",
+    text: "info@nexahubschool.edu",
   },
   {
     image:
