@@ -36,7 +36,7 @@ const FEATURES = [
     color: "bg-coral",
   },
   {
-    icon: "🚌",
+    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190515/Screenshot_2026-09-12_at_10.51.51_AM.png",
     title: "Safe Transport",
     text: "GPS-tracked buses covering all major routes with trained attendants.",
     color: "bg-indigo-soft",
