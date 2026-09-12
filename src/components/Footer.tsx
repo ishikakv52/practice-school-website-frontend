@@ -38,7 +38,7 @@ const CONTACT_ITEMS = [
     ),
   },
   {
-    text: "info@sunrisepublicschool.edu",
+    text: "info@nexahubschool.edu",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
         <rect x="3" y="5.5" width="18" height="13" rx="2" stroke="currentColor" strokeWidth="1.6" />
@@ -53,7 +53,7 @@ export default function Footer() {
     <footer className="bg-indigo-deep text-white/70">
       <div className="h-1 bg-gradient-to-r from-marigold via-coral to-indigo" />
 
-      <div className="container-page grid gap-14 md:gap-10 py-20 md:py-24 md:grid-cols-[1.3fr_1fr_1fr]">
+      <div className="container-page grid gap-14 md:gap-10 pt-24 pb-20 md:pt-28 md:pb-24 md:grid-cols-[1.3fr_1fr_1fr]">
         <div>
           <Link
             href="/"
