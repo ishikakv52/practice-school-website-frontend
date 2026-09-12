@@ -124,7 +124,7 @@ export default function Home() {
       {/* Stats — report-card style row */}
       <section className="bg-white border-y border-ink/[0.06]">
         <Reveal>
-          <div className="container-page grid grid-cols-2 md:grid-cols-4 divide-x divide-ink/[0.08] py-16">
+          <div className="container-page grid grid-cols-2 md:grid-cols-4 divide-x divide-ink/[0.08] py-20">
             {STATS.map((s) => (
               <div key={s.label} className="text-center px-2">
                 <div className="font-display font-bold text-2xl md:text-3xl text-indigo">
