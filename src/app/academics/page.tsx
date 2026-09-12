@@ -130,16 +130,16 @@ export default function AcademicsPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {ACTIVITIES.map((a, i) => (
               <Reveal key={a.title} delay={i * 60}>
-                <div className="bg-paper rounded-2xl border border-ink/[0.05] p-7 text-center">
-                  <div className="relative w-16 h-16 mx-auto mb-3">
+                <div className="text-center">
+                  <div className="relative w-full aspect-square rounded-2xl border border-ink/[0.05] overflow-hidden">
                     <Image
                       src={a.image}
                       alt={a.title}
                       fill
-                      className="object-contain rounded-xl"
+                      className="object-cover"
                     />
                   </div>
-                  <h3 className="font-display font-semibold text-sm">
+                  <h3 className="font-display font-semibold text-sm mt-3">
                     {a.title}
                   </h3>
                 </div>
