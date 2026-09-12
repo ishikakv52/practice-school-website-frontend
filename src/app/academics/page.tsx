@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import SectionTag from "@/components/SectionTag";
@@ -9,32 +10,38 @@ export const metadata: Metadata = {
 
 const PROGRAMS = [
   {
-    icon: "🧸",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195619/Screenshot_2026-09-12_at_12.16.44_PM.png",
     title: "Pre-Primary (Nursery – KG)",
     text: "Play-based learning focused on motor skills, language, and social development.",
   },
   {
-    icon: "✏️",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195620/Screenshot_2026-09-12_at_12.16.30_PM.png",
     title: "Primary (Class I – V)",
     text: "Building strong foundations in language, math, and science through activity-based learning.",
   },
   {
-    icon: "📘",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195620/Screenshot_2026-09-12_at_12.16.34_PM.png",
     title: "Middle School (Class VI – VIII)",
     text: "Broader subject exposure with project-based and collaborative learning methods.",
   },
   {
-    icon: "🧪",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195621/Screenshot_2026-09-12_at_12.16.20_PM.png",
     title: "Secondary (Class IX – X)",
     text: "CBSE curriculum with strong lab work, guided by experienced subject teachers.",
   },
   {
-    icon: "🎓",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195621/Screenshot_2026-09-12_at_12.16.25_PM.png",
     title: "Senior Secondary (Class XI – XII)",
     text: "Science, Commerce, and Humanities streams with career counselling support.",
   },
   {
-    icon: "💻",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789195621/Screenshot_2026-09-12_at_12.16.39_PM.png",
     title: "Digital Learning",
     text: "Smart classrooms and an online portal for assignments, grades, and resources.",
   },
@@ -73,7 +80,14 @@ export default function AcademicsPage() {
             {PROGRAMS.map((p, i) => (
               <Reveal key={p.title} delay={i * 60}>
                 <div className="h-full bg-white rounded-2xl shadow-[var(--shadow-sm)] border border-ink/[0.05] p-7">
-                  <div className="text-3xl mb-4">{p.icon}</div>
+                  <div className="relative w-14 h-14 mb-4">
+                    <Image
+                      src={p.image}
+                      alt={p.title}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
                   <h3 className="font-display font-semibold text-lg mb-2">
                     {p.title}
                   </h3>
