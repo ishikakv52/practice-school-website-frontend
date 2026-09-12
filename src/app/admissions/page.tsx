@@ -10,22 +10,22 @@ export const metadata: Metadata = {
 
 const STEPS = [
   {
-    image: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197994/Screenshot_2026-09-12_at_12.56.01_PM.png",
+    icon: "📝",
     title: "Apply Online",
     text: "Fill out the form below with student details.",
   },
   {
-    image: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197994/Screenshot_2026-09-12_at_12.56.08_PM.png",
+    icon: "📄",
     title: "Document Verification",
     text: "Submit required documents for review.",
   },
   {
-    image: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197993/Screenshot_2026-09-12_at_12.56.13_PM.png",
+    icon: "🗣️",
     title: "Interaction",
     text: "A short interaction with the student and parents.",
   },
   {
-    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197993/Screenshot_2026-09-12_at_12.56.17_PM.png",
+    icon: "✅",
     title: "Confirmation",
     text: "Receive admission confirmation and fee details.",
   },
