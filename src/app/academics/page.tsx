@@ -54,6 +54,8 @@ export default function AcademicsPage() {
         eyebrow="Curriculum"
         title="Academics"
         description="A curriculum designed to challenge, inspire, and prepare students for the future."
+        backgroundImage="https://res.cloudinary.com/n6ej76pq/image/upload/v1789192936/ChatGPT_Image_Sep_12_2026_11_32_04_AM.png"
+        size="lg"
       />
 
       <section className="py-20 md:py-24">
