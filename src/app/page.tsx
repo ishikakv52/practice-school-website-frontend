@@ -12,13 +12,13 @@ const STATS = [
 
 const FEATURES = [
   {
-    icon: "📚",
+    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190427/Screenshot_2026-09-12_at_10.50.21_AM.png",
     title: "Academic Excellence",
     text: "CBSE-aligned curriculum with experienced faculty and consistently strong board results.",
     color: "bg-indigo",
   },
   {
-    icon: "🎨",
+    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190451/Screenshot_2026-09-12_at_10.50.47_AM.png",
     title: "Co-curricular Activities",
     text: "Art, music, dance and sports programs to nurture creativity and confidence.",
     color: "bg-marigold",
@@ -158,7 +158,13 @@ export default function Home() {
                 <div className="h-full bg-white rounded-2xl shadow-[var(--shadow-sm)] border border-ink/[0.05] overflow-hidden flex">
                   <div className={`w-1.5 ${f.color}`} />
                   <div className="p-7">
-                    <div className="text-3xl mb-4">{f.icon}</div>
+                    <div className="w-10 h-10 mb-4 flex items-center justify-center">
+                      {f.icon.startsWith("http") ? (
+                        <img src={f.icon} alt={f.title} className="w-10 h-10 object-contain" />
+                      ) : (
+                        <span className="text-3xl">{f.icon}</span>
+                      )}
+                    </div>
                     <h3 className="font-display font-semibold text-lg mb-2">
                       {f.title}
                     </h3>
