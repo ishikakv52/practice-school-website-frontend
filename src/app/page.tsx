@@ -164,9 +164,9 @@ export default function Home() {
                 <div className={`h-full ${f.bgClass} rounded-2xl shadow-[var(--shadow-sm)] border border-ink/[0.05] overflow-hidden flex`}>
                   <div className={`w-1.5 ${f.color}`} />
                   <div className="p-7">
-                    <div className="w-16 h-16 mb-4 flex items-center justify-center">
+                    <div className="w-28 h-28 mb-4 flex items-center justify-center">
                       {f.icon.startsWith("http") ? (
-                        <img src={f.icon} alt={f.title} className="w-16 h-16 object-contain" />
+                        <img src={f.icon} alt={f.title} className="w-28 h-28 object-contain" />
                       ) : (
                         <span className="text-3xl">{f.icon}</span>
                       )}
