@@ -164,9 +164,9 @@ export default function Home() {
                 <div className="h-full bg-white rounded-2xl shadow-[var(--shadow-sm)] border border-ink/[0.05] overflow-hidden flex">
                   <div className={`w-1.5 ${f.color}`} />
                   <div className="p-7">
-                    <div className={`w-16 h-16 mb-4 rounded-2xl flex items-center justify-center ${f.icon.startsWith("http") ? f.bgClass : ""}`}>
+                    <div className={`w-20 h-20 mb-4 rounded-2xl flex items-center justify-center ${f.icon.startsWith("http") ? f.bgClass : ""}`}>
                       {f.icon.startsWith("http") ? (
-                        <img src={f.icon} alt={f.title} className="w-9 h-9 object-contain" />
+                        <img src={f.icon} alt={f.title} className="w-14 h-14 object-contain" />
                       ) : (
                         <span className="text-3xl">{f.icon}</span>
                       )}
