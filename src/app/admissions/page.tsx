@@ -12,25 +12,25 @@ export const metadata: Metadata = {
 const STEPS = [
   {
     image:
-      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789198847/Screenshot_2026-09-12_at_1.10.33_PM.png",
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789199025/Screenshot_2026-09-12_at_1.13.40_PM.png",
     title: "Apply Online",
     text: "Fill out the form below with student details.",
   },
   {
     image:
-      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197994/Screenshot_2026-09-12_at_12.56.08_PM.png",
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789198979/Screenshot_2026-09-12_at_1.12.54_PM.png",
     title: "Document Verification",
     text: "Submit required documents for review.",
   },
   {
     image:
-      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197993/Screenshot_2026-09-12_at_12.56.13_PM.png",
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789199048/Screenshot_2026-09-12_at_1.14.04_PM.png",
     title: "Interaction",
     text: "A short interaction with the student and parents.",
   },
   {
     image:
-      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197993/Screenshot_2026-09-12_at_12.56.17_PM.png",
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789199092/Screenshot_2026-09-12_at_1.14.48_PM.png",
     title: "Confirmation",
     text: "Receive admission confirmation and fee details.",
   },
