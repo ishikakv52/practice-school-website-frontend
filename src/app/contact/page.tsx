@@ -37,6 +37,7 @@ export default function ContactPage() {
         eyebrow="Get in Touch"
         title="Contact us"
         description="We'd love to hear from you. Reach out with any questions."
+        backgroundImage="https://res.cloudinary.com/n6ej76pq/image/upload/v1789192936/ChatGPT_Image_Sep_12_2026_11_32_04_AM.png"
       />
 
       <section className="py-20 md:py-24">

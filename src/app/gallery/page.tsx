@@ -35,6 +35,7 @@ export default function GalleryPage() {
         eyebrow="Campus Life"
         title="Gallery"
         description="Glimpses of campus life, events, and celebrations."
+        backgroundImage="https://res.cloudinary.com/n6ej76pq/image/upload/v1789192936/ChatGPT_Image_Sep_12_2026_11_32_04_AM.png"
       />
 
       <section className="py-20 md:py-24">

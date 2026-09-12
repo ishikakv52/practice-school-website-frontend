@@ -38,6 +38,7 @@ export default function AdmissionsPage() {
         eyebrow="2026-27 Intake"
         title="Admissions"
         description="Join the Sunrise family — admissions open for the 2026-27 academic year."
+        backgroundImage="https://res.cloudinary.com/n6ej76pq/image/upload/v1789192936/ChatGPT_Image_Sep_12_2026_11_32_04_AM.png"
       />
 
       <section className="py-20 md:py-24">
