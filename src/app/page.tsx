@@ -42,7 +42,7 @@ const FEATURES = [
     color: "bg-indigo-soft",
   },
   {
-    icon: "🤝",
+    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190527/Screenshot_2026-09-12_at_10.52.03_AM.png",
     title: "Value Education",
     text: "A curriculum that builds character, empathy, and responsible citizenship.",
     color: "bg-marigold",
