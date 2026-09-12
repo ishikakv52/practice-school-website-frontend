@@ -127,10 +127,10 @@ export default function Home() {
           <div className="container-page grid grid-cols-2 md:grid-cols-4 divide-x divide-ink/[0.08] py-16">
             {STATS.map((s) => (
               <div key={s.label} className="text-center px-2">
-                <div className="font-display font-bold text-3xl md:text-4xl text-indigo">
+                <div className="font-display font-bold text-2xl md:text-3xl text-indigo">
                   {s.number}
                 </div>
-                <div className="text-muted text-sm font-medium mt-1">
+                <div className="text-muted text-xs font-medium mt-1">
                   {s.label}
                 </div>
               </div>
