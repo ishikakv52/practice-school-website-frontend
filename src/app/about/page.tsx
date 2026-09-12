@@ -10,17 +10,20 @@ export const metadata: Metadata = {
 
 const LEADERSHIP = [
   {
-    icon: "👩‍🏫",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789194299/Screenshot_2026-09-12_at_11.54.17_AM.png",
     name: "Dr. Anjali Mehra",
     role: "Principal — 20+ years in education leadership",
   },
   {
-    icon: "👨‍🏫",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789194293/Screenshot_2026-09-12_at_11.54.24_AM.png",
     name: "Mr. Rajesh Kumar",
     role: "Vice Principal — Academics & Curriculum",
   },
   {
-    icon: "👩‍💼",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789194294/Screenshot_2026-09-12_at_11.54.30_AM.png",
     name: "Mrs. Sunita Rao",
     role: "Head of Administration",
   },
@@ -122,7 +125,14 @@ export default function AboutPage() {
             {LEADERSHIP.map((p, i) => (
               <Reveal key={p.name} delay={i * 70}>
                 <div className="h-full bg-white rounded-2xl shadow-[var(--shadow-sm)] border border-ink/[0.05] p-8 text-center">
-                  <div className="text-4xl mb-4">{p.icon}</div>
+                  <div className="relative w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden ring-4 ring-marigold/20">
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <h3 className="font-display font-semibold text-lg mb-1">
                     {p.name}
                   </h3>
