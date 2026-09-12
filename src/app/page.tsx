@@ -30,7 +30,7 @@ const FEATURES = [
     color: "bg-teal",
   },
   {
-    icon: "🏆",
+    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190505/Screenshot_2026-09-12_at_10.51.41_AM.png",
     title: "Sports Facilities",
     text: "Dedicated grounds and coaches for cricket, football, athletics, and more.",
     color: "bg-coral",
