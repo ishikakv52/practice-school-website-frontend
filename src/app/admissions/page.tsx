@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import SectionTag from "@/components/SectionTag";
@@ -10,22 +11,26 @@ export const metadata: Metadata = {
 
 const STEPS = [
   {
-    icon: "📝",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197994/Screenshot_2026-09-12_at_12.56.01_PM.png",
     title: "Apply Online",
     text: "Fill out the form below with student details.",
   },
   {
-    icon: "📄",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197994/Screenshot_2026-09-12_at_12.56.08_PM.png",
     title: "Document Verification",
     text: "Submit required documents for review.",
   },
   {
-    icon: "🗣️",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197993/Screenshot_2026-09-12_at_12.56.13_PM.png",
     title: "Interaction",
     text: "A short interaction with the student and parents.",
   },
   {
-    icon: "✅",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197993/Screenshot_2026-09-12_at_12.56.17_PM.png",
     title: "Confirmation",
     text: "Receive admission confirmation and fee details.",
   },
@@ -59,7 +64,14 @@ export default function AdmissionsPage() {
                   <div className="w-8 h-8 rounded-full bg-indigo text-white flex items-center justify-center font-display font-bold text-sm mx-auto mb-4">
                     {i + 1}
                   </div>
-                  <div className="text-3xl mb-3">{s.icon}</div>
+                  <div className="relative w-14 h-14 mx-auto mb-3">
+                    <Image
+                      src={s.image}
+                      alt={s.title}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
                   <h3 className="font-display font-semibold text-[1.02rem] mb-2">
                     {s.title}
                   </h3>
