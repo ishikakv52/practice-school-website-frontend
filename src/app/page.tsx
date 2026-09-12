@@ -77,11 +77,11 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden text-white min-h-[640px] md:min-h-[760px]">
+      <section className="relative overflow-hidden text-white min-h-[520px] md:min-h-[620px]">
         <img
           src="https://res.cloudinary.com/n6ej76pq/image/upload/v1789188658/ChatGPT_Image_Sep_10_2026_05_28_04_PM.png"
           alt="Nexa Hub School campus"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-indigo-deep/80" />
         <div className="absolute inset-0 ruled-bg opacity-[0.1]" />
