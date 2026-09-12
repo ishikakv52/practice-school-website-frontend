@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 
@@ -7,25 +8,66 @@ export const metadata: Metadata = {
 };
 
 const ITEMS = [
-  { icon: "🏫", label: "Campus" },
-  { icon: "🔬", label: "Science Lab" },
-  { icon: "📚", label: "Library" },
-  { icon: "🎨", label: "Art Class" },
-  { icon: "⚽", label: "Sports Day" },
-  { icon: "🎭", label: "Drama Club" },
-  { icon: "🎼", label: "Music" },
-  { icon: "🏆", label: "Annual Awards" },
-  { icon: "🌱", label: "Eco Club" },
-  { icon: "💻", label: "Computer Lab" },
-  { icon: "🎉", label: "Annual Day" },
-  { icon: "👩‍🎓", label: "Graduation" },
-];
-
-const TILE_GRADIENTS = [
-  "from-indigo/15 to-teal/15",
-  "from-marigold/15 to-coral/15",
-  "from-teal/15 to-indigo/15",
-  "from-coral/15 to-marigold/15",
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789188658/ChatGPT_Image_Sep_10_2026_05_28_04_PM.png",
+    label: "Campus",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202602/Screenshot_2026-09-12_at_2.08.32_PM.png",
+    label: "Science Lab",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202603/Screenshot_2026-09-12_at_2.08.42_PM.png",
+    label: "Library",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202604/Screenshot_2026-09-12_at_2.09.06_PM.png",
+    label: "Art Class",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202604/Screenshot_2026-09-12_at_2.09.12_PM.png",
+    label: "Sports Day",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197089/Screenshot_2026-09-12_at_12.40.59_PM.png",
+    label: "Drama Club",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197089/Screenshot_2026-09-12_at_12.41.07_PM.png",
+    label: "Music",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202723/Screenshot_2026-09-12_at_2.14.36_PM.png",
+    label: "Annual Awards",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202722/Screenshot_2026-09-12_at_2.14.44_PM.png",
+    label: "Eco Club",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202722/Screenshot_2026-09-12_at_2.14.51_PM.png",
+    label: "Computer Lab",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202720/Screenshot_2026-09-12_at_2.14.57_PM.png",
+    label: "Annual Day",
+  },
+  {
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202721/Screenshot_2026-09-12_at_2.15.05_PM.png",
+    label: "Graduation",
+  },
 ];
 
 export default function GalleryPage() {
@@ -44,12 +86,13 @@ export default function GalleryPage() {
             {ITEMS.map((item, i) => (
               <Reveal key={item.label} delay={(i % 4) * 60}>
                 <div className="flex flex-col gap-2.5">
-                  <div
-                    className={`aspect-4/3 rounded-2xl bg-gradient-to-br ${
-                      TILE_GRADIENTS[i % TILE_GRADIENTS.length]
-                    } flex items-center justify-center text-4xl shadow-[var(--shadow-sm)] hover:scale-[1.03] transition-transform`}
-                  >
-                    {item.icon}
+                  <div className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-[var(--shadow-sm)] hover:scale-[1.03] transition-transform">
+                    <Image
+                      src={item.image}
+                      alt={item.label}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <span className="text-center text-sm font-semibold">
                     {item.label}
@@ -58,9 +101,6 @@ export default function GalleryPage() {
               </Reveal>
             ))}
           </div>
-          <p className="text-center text-muted text-sm mt-8">
-            Note: swap each tile for an actual photo to showcase your school.
-          </p>
         </div>
       </section>
     </>
