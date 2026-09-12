@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
@@ -9,22 +10,26 @@ export const metadata: Metadata = {
 
 const DETAILS = [
   {
-    icon: "📍",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202918/Screenshot_2026-09-12_at_2.17.06_PM.png",
     title: "Address",
     text: "123 Education Road, Sector 12, New Delhi, India - 110001",
   },
   {
-    icon: "📞",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202857/Screenshot_2026-09-12_at_2.17.13_PM.png",
     title: "Phone",
     text: "+91 98765 43210  |  +91 11 4567 8900",
   },
   {
-    icon: "✉️",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202856/Screenshot_2026-09-12_at_2.17.18_PM.png",
     title: "Email",
     text: "info@sunrisepublicschool.edu",
   },
   {
-    icon: "🕐",
+    image:
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789202855/Screenshot_2026-09-12_at_2.17.23_PM.png",
     title: "Office Hours",
     text: "Monday – Saturday: 8:00 AM – 3:30 PM",
   },
@@ -48,8 +53,13 @@ export default function ContactPage() {
                 key={d.title}
                 className="flex items-start gap-4 bg-white rounded-xl border border-ink/[0.05] shadow-[var(--shadow-sm)] p-6 hover:translate-x-1 transition-transform"
               >
-                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-indigo/10 to-teal/10 flex items-center justify-center text-xl shrink-0">
-                  {d.icon}
+                <div className="relative w-11 h-11 rounded-xl overflow-hidden shrink-0">
+                  <Image
+                    src={d.image}
+                    alt={d.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="font-display font-semibold mb-1">
@@ -61,19 +71,7 @@ export default function ContactPage() {
             ))}
           </Reveal>
 
-          <Reveal delay={80}>
-            <ContactForm />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="pb-20 md:pb-24">
-        <div className="container-page">
-          <Reveal>
-            <div className="aspect-[16/6] rounded-2xl bg-gradient-to-br from-indigo/10 to-marigold/10 flex items-center justify-center text-muted text-lg gap-2 shadow-[var(--shadow-sm)]">
-              🗺️ Map placeholder — embed Google Maps here
-            </div>
-          </Reveal>
+          <ContactForm />
         </div>
       </section>
     </>
