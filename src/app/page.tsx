@@ -77,7 +77,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden text-white min-h-[560px] md:min-h-[680px]">
+      <section className="relative overflow-hidden text-white min-h-[520px] md:min-h-[620px]">
         <img
           src="https://res.cloudinary.com/n6ej76pq/image/upload/v1789188658/ChatGPT_Image_Sep_10_2026_05_28_04_PM.png"
           alt="Nexa Hub School campus"
@@ -124,7 +124,7 @@ export default function Home() {
       {/* Stats — report-card style row */}
       <section className="bg-white border-y border-ink/[0.06]">
         <Reveal>
-          <div className="container-page grid grid-cols-2 md:grid-cols-4 divide-x divide-ink/[0.08] py-10">
+          <div className="container-page grid grid-cols-2 md:grid-cols-4 divide-x divide-ink/[0.08] py-16">
             {STATS.map((s) => (
               <div key={s.label} className="text-center px-2">
                 <div className="font-display font-bold text-3xl md:text-4xl text-indigo">
