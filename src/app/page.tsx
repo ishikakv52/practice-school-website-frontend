@@ -16,36 +16,42 @@ const FEATURES = [
     title: "Academic Excellence",
     text: "CBSE-aligned curriculum with experienced faculty and consistently strong board results.",
     color: "bg-indigo",
+    bgClass: "bg-indigo/10",
   },
   {
     icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190451/Screenshot_2026-09-12_at_10.50.47_AM.png",
     title: "Co-curricular Activities",
     text: "Art, music, dance and sports programs to nurture creativity and confidence.",
     color: "bg-marigold",
+    bgClass: "bg-marigold/10",
   },
   {
     icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190474/Screenshot_2026-09-12_at_10.51.10_AM.png",
     title: "Modern Labs",
     text: "Fully-equipped science, computer, and robotics labs for hands-on learning.",
     color: "bg-teal",
+    bgClass: "bg-teal/10",
   },
   {
     icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190505/Screenshot_2026-09-12_at_10.51.41_AM.png",
     title: "Sports Facilities",
     text: "Dedicated grounds and coaches for cricket, football, athletics, and more.",
     color: "bg-coral",
+    bgClass: "bg-coral/10",
   },
   {
     icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190515/Screenshot_2026-09-12_at_10.51.51_AM.png",
     title: "Safe Transport",
     text: "GPS-tracked buses covering all major routes with trained attendants.",
     color: "bg-indigo-soft",
+    bgClass: "bg-indigo-soft/10",
   },
   {
     icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190527/Screenshot_2026-09-12_at_10.52.03_AM.png",
     title: "Value Education",
     text: "A curriculum that builds character, empathy, and responsible citizenship.",
     color: "bg-marigold",
+    bgClass: "bg-marigold/10",
   },
 ];
 
@@ -158,9 +164,9 @@ export default function Home() {
                 <div className="h-full bg-white rounded-2xl shadow-[var(--shadow-sm)] border border-ink/[0.05] overflow-hidden flex">
                   <div className={`w-1.5 ${f.color}`} />
                   <div className="p-7">
-                    <div className="w-10 h-10 mb-4 flex items-center justify-center">
+                    <div className={`w-16 h-16 mb-4 rounded-2xl flex items-center justify-center ${f.icon.startsWith("http") ? f.bgClass : ""}`}>
                       {f.icon.startsWith("http") ? (
-                        <img src={f.icon} alt={f.title} className="w-10 h-10 object-contain" />
+                        <img src={f.icon} alt={f.title} className="w-9 h-9 object-contain" />
                       ) : (
                         <span className="text-3xl">{f.icon}</span>
                       )}
