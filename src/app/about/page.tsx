@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Reveal from "@/components/Reveal";
 import SectionTag from "@/components/SectionTag";
@@ -55,8 +56,13 @@ export default function AboutPage() {
             </p>
           </Reveal>
           <Reveal delay={100}>
-            <div className="aspect-4/3 rounded-2xl bg-gradient-to-br from-teal/10 to-marigold/10 flex items-center justify-center text-7xl shadow-[var(--shadow-sm)]">
-              📖
+            <div className="relative aspect-4/3 rounded-2xl overflow-hidden bg-gradient-to-br from-teal/10 to-marigold/10 shadow-[var(--shadow-sm)]">
+              <Image
+                src="https://res.cloudinary.com/n6ej76pq/image/upload/v1789192936/ChatGPT_Image_Sep_12_2026_11_32_04_AM.png"
+                alt="Our story"
+                fill
+                className="object-cover"
+              />
             </div>
           </Reveal>
         </div>
