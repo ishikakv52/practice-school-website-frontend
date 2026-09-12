@@ -24,7 +24,7 @@ const FEATURES = [
     color: "bg-marigold",
   },
   {
-    icon: "🔬",
+    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190474/Screenshot_2026-09-12_at_10.51.10_AM.png",
     title: "Modern Labs",
     text: "Fully-equipped science, computer, and robotics labs for hands-on learning.",
     color: "bg-teal",
