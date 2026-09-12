@@ -87,7 +87,7 @@ export default function Home() {
         <div className="absolute inset-0 ruled-bg opacity-[0.1]" />
         <div className="container-page relative pt-16 pb-16 md:pt-24 md:pb-28 max-w-2xl">
           <div>
-            <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-[3.4rem] leading-[1.1] tracking-tight mb-6">
+            <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-[3.4rem] leading-[1.1] tracking-tight mb-6 mt-14 md:mt-20">
               Empowering minds,
               <br />
               building{" "}
