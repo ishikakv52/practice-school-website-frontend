@@ -87,9 +87,6 @@ export default function Home() {
         <div className="absolute inset-0 ruled-bg opacity-[0.1]" />
         <div className="container-page relative pt-16 pb-16 md:pt-24 md:pb-28 max-w-2xl">
           <div>
-            <span className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm font-medium mb-6">
-              ✨ Admissions open for 2026-27
-            </span>
             <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-[3.4rem] leading-[1.1] tracking-tight mb-6">
               Empowering minds,
               <br />
@@ -119,6 +116,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <span className="absolute bottom-6 right-6 md:bottom-10 md:right-10 z-10 inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm font-medium">
+          ✨ Admissions open for 2026-27
+        </span>
       </section>
 
       {/* Stats — report-card style row */}
