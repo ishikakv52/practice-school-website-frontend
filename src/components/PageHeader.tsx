@@ -5,11 +5,13 @@ export default function PageHeader({
   title,
   description,
   backgroundImage,
+  size = "md",
 }: {
   eyebrow: string;
   title: string;
   description: string;
   backgroundImage?: string;
+  size?: "md" | "lg";
 }) {
   return (
     <div className="relative overflow-hidden bg-indigo-deep text-white">
@@ -26,7 +28,11 @@ export default function PageHeader({
         </>
       )}
       <div className="absolute inset-0 ruled-bg opacity-[0.12]" />
-      <div className="container-page relative py-28 md:py-36">
+      <div
+        className={`container-page relative ${
+          size === "lg" ? "py-32 md:py-44" : "py-20 md:py-24"
+        }`}
+      >
         <span className="inline-block text-marigold-light font-semibold text-sm mb-3">
           {eyebrow}
         </span>
