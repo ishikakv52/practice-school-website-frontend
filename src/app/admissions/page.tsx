@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const STEPS = [
   {
     image:
-      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789197994/Screenshot_2026-09-12_at_12.56.01_PM.png",
+      "https://res.cloudinary.com/n6ej76pq/image/upload/v1789198847/Screenshot_2026-09-12_at_1.10.33_PM.png",
     title: "Apply Online",
     text: "Fill out the form below with student details.",
   },
