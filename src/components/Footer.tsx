@@ -53,11 +53,11 @@ export default function Footer() {
     <footer className="bg-indigo-deep text-white/70">
       <div className="h-1 bg-gradient-to-r from-marigold via-coral to-indigo" />
 
-      <div className="container-page grid gap-12 py-16 md:grid-cols-[1.3fr_1fr_1fr]">
+      <div className="container-page grid gap-14 md:gap-10 py-20 md:py-24 md:grid-cols-[1.3fr_1fr_1fr]">
         <div>
           <Link
             href="/"
-            className="flex items-center gap-3 font-display font-semibold text-lg text-white mb-4"
+            className="flex items-center gap-3 font-display font-semibold text-lg text-white mb-5"
           >
             <Image
               src="https://res.cloudinary.com/n6ej76pq/image/upload/v1789192309/Screenshot_2026-09-12_at_11.21.44_AM.png"
@@ -75,15 +75,15 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="text-white font-display font-semibold mb-5 text-[0.95rem] tracking-wide uppercase">
+          <h4 className="text-white font-display font-semibold mb-6 text-[0.95rem] tracking-wide uppercase">
             Quick Links
           </h4>
-          <ul className="space-y-3 text-sm">
+          <ul className="space-y-4 text-sm">
             {QUICK_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="inline-flex items-center gap-2 transition-colors hover:text-marigold-light"
+                  className="inline-flex items-center gap-2.5 transition-colors hover:text-marigold-light"
                 >
                   <span className="w-1 h-1 rounded-full bg-white/30" />
                   {link.label}
@@ -94,12 +94,12 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="text-white font-display font-semibold mb-5 text-[0.95rem] tracking-wide uppercase">
+          <h4 className="text-white font-display font-semibold mb-6 text-[0.95rem] tracking-wide uppercase">
             Contact
           </h4>
-          <ul className="space-y-4 text-sm">
+          <ul className="space-y-5 text-sm">
             {CONTACT_ITEMS.map((item) => (
-              <li key={item.text} className="flex items-start gap-3">
+              <li key={item.text} className="flex items-start gap-3.5">
                 <span className="mt-0.5 text-marigold-light shrink-0">
                   {item.icon}
                 </span>
@@ -110,8 +110,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/10 py-6">
-        <div className="container-page flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-white/50">
+      <div className="border-t border-white/10 py-7">
+        <div className="container-page flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/50">
           <p>© 2026 Nexa Hub School. All rights reserved.</p>
           <p>Made with care for our students and families.</p>
         </div>
