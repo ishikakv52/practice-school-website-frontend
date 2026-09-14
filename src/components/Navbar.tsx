@@ -48,7 +48,7 @@ export default function Navbar() {
           onClick={() => setOpen(false)}
         >
           <img
-            src="https://res.cloudinary.com/n6ej76pq/image/upload/v1789192309/Screenshot_2026-09-12_at_11.21.44_AM.png"
+            src="https://res.cloudinary.com/n6ej76pq/image/upload/f_auto,q_auto:good,w_150/v1789192309/Screenshot_2026-09-12_at_11.21.44_AM.png"
             alt="Nexa Hub School logo"
             className="w-10 h-10 rounded-xl object-contain shrink-0"
           />

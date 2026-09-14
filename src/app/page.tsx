@@ -12,42 +12,42 @@ const STATS = [
 
 const FEATURES = [
   {
-    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190427/Screenshot_2026-09-12_at_10.50.21_AM.png",
+    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/f_auto,q_auto:good,w_400/v1789190427/Screenshot_2026-09-12_at_10.50.21_AM.png",
     title: "Academic Excellence",
     text: "CBSE-aligned curriculum with experienced faculty and consistently strong board results.",
     color: "bg-indigo",
     bgClass: "bg-indigo/10",
   },
   {
-    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190451/Screenshot_2026-09-12_at_10.50.47_AM.png",
+    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/f_auto,q_auto:good,w_400/v1789190451/Screenshot_2026-09-12_at_10.50.47_AM.png",
     title: "Co-curricular Activities",
     text: "Art, music, dance and sports programs to nurture creativity and confidence.",
     color: "bg-marigold",
     bgClass: "bg-marigold/10",
   },
   {
-    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190474/Screenshot_2026-09-12_at_10.51.10_AM.png",
+    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/f_auto,q_auto:good,w_400/v1789190474/Screenshot_2026-09-12_at_10.51.10_AM.png",
     title: "Modern Labs",
     text: "Fully-equipped science, computer, and robotics labs for hands-on learning.",
     color: "bg-teal",
     bgClass: "bg-teal/10",
   },
   {
-    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190505/Screenshot_2026-09-12_at_10.51.41_AM.png",
+    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/f_auto,q_auto:good,w_400/v1789190505/Screenshot_2026-09-12_at_10.51.41_AM.png",
     title: "Sports Facilities",
     text: "Dedicated grounds and coaches for cricket, football, athletics, and more.",
     color: "bg-coral",
     bgClass: "bg-coral/10",
   },
   {
-    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190515/Screenshot_2026-09-12_at_10.51.51_AM.png",
+    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/f_auto,q_auto:good,w_400/v1789190515/Screenshot_2026-09-12_at_10.51.51_AM.png",
     title: "Safe Transport",
     text: "GPS-tracked buses covering all major routes with trained attendants.",
     color: "bg-indigo-soft",
     bgClass: "bg-indigo-soft/10",
   },
   {
-    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/v1789190527/Screenshot_2026-09-12_at_10.52.03_AM.png",
+    icon: "https://res.cloudinary.com/n6ej76pq/image/upload/f_auto,q_auto:good,w_400/v1789190527/Screenshot_2026-09-12_at_10.52.03_AM.png",
     title: "Value Education",
     text: "A curriculum that builds character, empathy, and responsible citizenship.",
     color: "bg-marigold",
