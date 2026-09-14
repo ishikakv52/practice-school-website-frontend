@@ -32,8 +32,8 @@
   --color-marigold-light: var(--marigold-light);
   --color-teal: var(--teal);
   --color-coral: var(--coral);
-  --font-display: "Fraunces", Georgia, serif;
-  --font-body: "Inter", -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-inter), -apple-system, "Segoe UI", sans-serif;
 }
 
 * {
@@ -48,13 +48,13 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: "Inter", -apple-system, "Segoe UI", sans-serif;
+  font-family: var(--font-inter), -apple-system, "Segoe UI", sans-serif;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
-  font-family: "Fraunces", Georgia, serif;
+  font-family: var(--font-fraunces), Georgia, serif;
 }
 
 a {
