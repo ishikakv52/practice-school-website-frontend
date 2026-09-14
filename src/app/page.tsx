@@ -85,8 +85,9 @@ export default function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden text-white min-h-[520px] md:min-h-[620px]">
         <img
-          src="https://res.cloudinary.com/n6ej76pq/image/upload/v1789188658/ChatGPT_Image_Sep_10_2026_05_28_04_PM.png"
+          src="https://res.cloudinary.com/n6ej76pq/image/upload/f_auto,q_auto,w_1600/v1789188658/ChatGPT_Image_Sep_10_2026_05_28_04_PM.png"
           alt="Nexa Hub School campus"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-indigo-deep/80" />
@@ -215,7 +216,7 @@ export default function Home() {
           <Reveal delay={100}>
             <div className="aspect-4/3 rounded-2xl overflow-hidden shadow-[var(--shadow-sm)] bg-indigo-deep/5">
               <img
-                src="https://res.cloudinary.com/n6ej76pq/image/upload/v1789188658/ChatGPT_Image_Sep_10_2026_05_28_04_PM.png"
+                src="https://res.cloudinary.com/n6ej76pq/image/upload/f_auto,q_auto,w_1600/v1789188658/ChatGPT_Image_Sep_10_2026_05_28_04_PM.png"
                 alt="Nexa Hub School campus"
                 className="w-full h-full object-contain"
               />
